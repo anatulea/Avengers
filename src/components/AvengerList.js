@@ -3,6 +3,7 @@ import React from 'react'
 import avengers from "../data.js"
 import { Link } from "react-router-dom";
 
+
 function AvengersList (props) {
     console.log(avengers);
     return(
@@ -11,9 +12,13 @@ function AvengersList (props) {
                <div className="character-card" key= {item.id}> 
                
                <img src={item.thumbnail} alt={item.name} />
-               <Link to ={`/avengers/${item.id}`}>
+               {/* <Link to ={`/avengers/${item.id}`}>
                    <h3> {item.name}</h3> 
-                </Link>
+                </Link> */}
+                
+                <h2>
+                    <div onClick = {()=> routeToAvengers(props, item)}> {item.name} </div>
+                </h2>
 
                <Link to ={`/avengers/${item.id}`}>
                     <p>({item.nickname})</p> 
@@ -23,4 +28,8 @@ function AvengersList (props) {
         </div>
     );
 };
+function routeToAvengers(props,item){
+    props.history.push(`/avengers/${item.id}`)
+}
+
 export default AvengersList;
