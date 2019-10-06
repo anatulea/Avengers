@@ -3,18 +3,18 @@ import React from 'react'
 import avengers from "../data.js"
 import { Link } from "react-router-dom";
 
-function AvengersList () {
+function AvengersList (props) {
     console.log(avengers);
     return(
         <div className="characters-list-wrapper">
-            {avengers.map(item => (
+            {props.avengers.map(item => (
                <div className="character-card" key= {item.id}> 
                
                <img src={item.thumbnail} alt={item.name} />
                <Link to ={`/avengers/${item.id}`}>
                    <h3> {item.name}</h3> 
                 </Link>
-                
+
                <Link to ={`/avengers/${item.id}`}>
                     <p>({item.nickname})</p> 
                 </Link> 
