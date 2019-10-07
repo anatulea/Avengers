@@ -19,7 +19,6 @@ function AvengersList (props) {
                 <h2>
                     <div onClick = {()=> routeToAvengers(props, item)}> {item.name} </div>
                 </h2>
-
                <Link to ={`/avengers/${item.id}`}>
                     <p>({item.nickname})</p> 
                 </Link> 
